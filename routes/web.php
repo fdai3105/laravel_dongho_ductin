@@ -1,5 +1,15 @@
 <?php
 
+use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TypeProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +26,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('brand', BrandController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('image', ImageController::class);
+    Route::resource('order', OrderController::class);
+    Route::resource('order_detail', OrderDetailController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('product_type', TypeProductController::class);
+});
+
+Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');

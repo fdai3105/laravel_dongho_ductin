@@ -35,7 +35,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('order', OrderController::class);
     Route::resource('order_detail', OrderDetailController::class);
     Route::resource('product', ProductController::class);
-    Route::resource('product_type', TypeProductController::class);
 });
 
 Auth::routes();

@@ -15,11 +15,10 @@ class CreateImageTable extends Migration
     {
         Schema::create('image', function (Blueprint $table) {
             $table->id();
-            $table->string('thumbnail');
             $table->string('image');
 
-            $table->bigInteger('brand_id')->unsigned();
-            $table->foreign('brand_id')->references('id')->on('image');
+            // $table->bigInteger('brand_id')->unsigned();
+            // $table->foreign('brand_id')->references('id')->on('image');
 
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('product');

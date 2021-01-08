@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('body')
+@include('admin.product.particles.add')
 
 <div class="absolute overflow-auto overflow-x-hidden inset-0 p-4 bg-white sm:rounded-3xl shadow-lg">
     <div class="mb-6 flex justify-between">
@@ -21,67 +22,73 @@
 
     <!-- Table -->
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-        <table class="min-w-full divide-y divide-gray-200">
+        <table class="min-w-full table-fixed">
             <!-- header -->
             <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="w-1 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         ID
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Name
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Category
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Brand
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="w-3/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Desc
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Image
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Create at
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Update at
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Action
                     </th>
                 </tr>
             </thead>
 
             <!-- body -->
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-white">
                 @foreach($products as $product)
-                <tr class="hover:bg-gray-200">
-                    <td class="px-6 py-4 whitespace-nowrap">
+                <tr class="hover:bg-gray-200 cursor-pointer">
+                    <td class="px-6 py-4 ">
                         <div class="text-base text-gray-900">{{ $product->id }}</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 ">
                         <div class="text-base text-gray-900">{{ $product->name }}</div>
                         <!-- <div class="text-sm text-gray-500">Optimization</div> -->
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 ">
                         <div class="text-base text-gray-900">{{ $product->category->name}}</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 ">
                         <div class="text-base text-gray-900">{{ $product->brand->name}}</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 ">
                         <div class="text-base text-gray-900">{{ $product->desc}}</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-base text-gray-900">{{ $product->image}}</div>
+                    <td class="px-6 py-4 ">
+                        <div class="text-base text-gray-900">
+                            @if($product->image->first() == null)
+
+                            @else
+                            <img src="{{ URL::asset($product->image->first()->image) }}" class="h-20 object-fill">
+                            @endif
+                        </div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">
+                    <td class="px-6 py-4  text-base text-gray-900">
                         {{ $product->created_at }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">
+                    <td class="px-6 py-4 text-base text-gray-900">
                         {{ $product->updated_at }}
                     </td>
                     <td class="px-6 py-4 text-white">

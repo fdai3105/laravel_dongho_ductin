@@ -1,7 +1,7 @@
 @extends('admin.index')
 
 @section('body')
-@include('admin.category.particles.create_modal')
+@include('admin.category.particles.add')
 
 <div class="absolute overflow-auto overflow-x-hidden inset-0 p-4 bg-white sm:rounded-3xl shadow-lg">
     <div class="mb-6 flex justify-between">

@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <div class="flex flex-row">
     @include('commons.sidebar')
 
@@ -11,3 +12,4 @@
         </div>
     </div>
 </div>
+@endsection('content')

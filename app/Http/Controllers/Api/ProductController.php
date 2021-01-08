@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BrandResource;
-use App\Models\Brand;
+use App\Http\Resources\ProductResource;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return new BrandResource(Brand::all());
+        return ProductResource::collection(Product::all());
     }
 
     /**

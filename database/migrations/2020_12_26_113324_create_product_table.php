@@ -25,7 +25,7 @@ class CreateProductTable extends Migration
             $table->string('band_material');
             $table->integer('warranty');
             $table->string('gender');
-            $table->string('discount');
+            $table->double('discount');
 
             $table->bigInteger('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('brand');

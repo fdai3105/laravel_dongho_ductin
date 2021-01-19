@@ -18,7 +18,7 @@ class CreateProductTable extends Migration
             $table->string('name');
             $table->string('desc');
             $table->double('size');
-            $table->decimal('price');
+            $table->bigInteger('price');
             $table->string('material');
             $table->string('style');
             $table->integer('waterproof');

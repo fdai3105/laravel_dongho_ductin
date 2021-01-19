@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-        return view('admin.order.index', ['orders' => $orders]);
+        $users = User::all();
+        return view('admin.user.index', ['users' => $users]);
     }
 
     /**
@@ -47,8 +47,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::findOrFail($id);
-        return $order;
+        //
     }
 
     /**

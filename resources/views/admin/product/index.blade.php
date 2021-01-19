@@ -24,33 +24,36 @@
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table class="min-w-full table-fixed">
             <!-- header -->
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="w-1 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <thead class="bg-gray-200">
+                <tr class="text-left text-xs text-gray-500 tracking-wider">
+                    <th class="w-1 px-6 py-3 font-medium">
                         ID
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
                         Name
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
                         Category
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
                         Brand
                     </th>
-                    <th class="w-3/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
+                        Price
+                    </th>
+                    <th class="px-6 py-3 font-medium">
                         Desc
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
                         Image
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
                         Create at
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
                         Update at
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th class="px-6 py-3 font-medium">
                         Action
                     </th>
                 </tr>
@@ -74,13 +77,14 @@
                         <div class="text-base text-gray-900">{{ $product->brand->name}}</div>
                     </td>
                     <td class="px-6 py-4 ">
+                        <div class="text-base text-gray-900">{{ $product->price}}</div>
+                    </td>
+                    <td class="px-6 py-4">
                         <div class="text-base text-gray-900">{{ $product->desc}}</div>
                     </td>
                     <td class="px-6 py-4 ">
                         <div class="text-base text-gray-900">
-                            @if($product->image->first() == null)
-
-                            @else
+                            @if($product->image->first() != null)
                             <img src="{{ URL::asset($product->image->first()->image) }}" class="h-20 object-fill">
                             @endif
                         </div>

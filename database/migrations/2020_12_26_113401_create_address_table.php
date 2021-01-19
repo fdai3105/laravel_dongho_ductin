@@ -18,6 +18,7 @@ class CreateAddressTable extends Migration
             $table->string('city');
             $table->string('district');
             $table->string('ward');
+            $table->string('address');
             
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

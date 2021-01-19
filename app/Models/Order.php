@@ -13,8 +13,23 @@ class Order extends Model
 
     protected $fillable = ['status', 'total', 'note'];
 
+    public function orderDetail()
+    {
+        return $this->hasMany(OrderDetail::class, 'order_id');
+    }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class, 'address_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function getTotalAttribute($total)
+    {
+        return number_format($total, 0, '.', '.'). '₫';
     }
 }

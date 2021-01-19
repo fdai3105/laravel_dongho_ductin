@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BrandController;
+use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\UserController;
@@ -23,6 +24,7 @@ Route::post('register', [UserController::class, 'register']);
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('user', [UserController::class, 'getUser']);
+    Route::post('checkout', [CartController::class, 'checkout']);
 });
 
 Route::group([], function () {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -26,13 +27,14 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('/', [DashboardController::class,'index'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('product', ProductController::class);
     Route::resource('brand', BrandController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('image', ImageController::class);
     Route::resource('order', OrderController::class);
     Route::resource('order_detail', OrderDetailController::class);
-    Route::resource('product', ProductController::class);
+    Route::resource('user', UserController::class);
 });
 
 Auth::routes();

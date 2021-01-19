@@ -21,7 +21,10 @@ class CreateOrderTable extends Migration
 
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            
+
+            $table->bigInteger('address_id')->unsigned();
+            $table->foreign('address_id')->references('id')->on('address');
+
             $table->timestamps();
         });
     }

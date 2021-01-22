@@ -16,7 +16,7 @@ class CreateProductTable extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->multiLineString('desc');
+            $table->string('desc', 2048);
             $table->double('size');
             $table->bigInteger('price');
             $table->string('material');
@@ -32,7 +32,7 @@ class CreateProductTable extends Migration
 
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('category');
-            
+
             $table->timestamps();
         });
     }

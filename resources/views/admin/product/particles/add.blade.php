@@ -1,4 +1,4 @@
-<div class="my-modal fixed z-10 inset-0 overflow-y-auto hidden" id="my-modal">
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" id="my-modal">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div onclick="displayModal()" class="fixed inset-0 transition-opacity" aria-hidden="true">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -6,7 +6,7 @@
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle max-w-xl sm:max-w-3xl sm:w-full">
+        <div class="w-9/12 inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle">
             <div class="px-4 py-5">
                 <form class="m-0 p-0" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                     <!-- <div class="grid grid-cols-6 gap-6">
@@ -34,8 +34,14 @@
                             border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
                             </div>
 
+                            <div class="mb-4">
+                                <label class="text-sm font-medium text-gray-700">Price</label>
+                                <input type="number" name="price" class="mt-2 px-4 h-10 w-full
+                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
+                            </div>
+
                             <div class="mb-4 flex">
-                                <div class="mr-4 flex-1 relative inline-block text-left">
+                                <div class="mr-2 flex-1 relative inline-block text-left">
                                     <label class="text-sm font-medium text-gray-700">Category</label>
                                     <div class="mt-2">
                                         <select name="category_id" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
@@ -50,7 +56,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ml-4 flex-1 relative inline-block text-left">
+                                <div class="ml-2 flex-1 relative inline-block text-left">
                                     <label class="mb-2 text-sm font-medium text-gray-700">Brand</label>
                                     <div class="mt-2">
                                         <select name="brand_id" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
@@ -68,20 +74,8 @@
 
                             <div class="mb-4">
                                 <label class="text-sm font-medium text-gray-700">Desc</label>
-                                <input type="text" name="desc" class="mt-2 px-4 h-10 w-full
-                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="text-sm font-medium text-gray-700">Price</label>
-                                <input type="number" name="price" class="mt-2 px-4 h-10 w-full
-                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="text-sm font-medium text-gray-700">Warranty</label>
-                                <input type="number" name="warranty" class="mt-2 px-4 h-10 w-full
-                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
+                                <textarea type="text" name="desc" class="h-36 mt-2 px-4 w-full
+                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md"></textarea>
                             </div>
                         </div>
 
@@ -89,39 +83,86 @@
                         <div class="flex flex-1 flex-col mr-4">
                             <div class="mb-4">
                                 <label class="text-sm font-medium text-gray-700">Gender</label>
-                                <input type="text" name="gender" class="mt-2 px-4 h-10 w-full
-                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
+                                <div class="mt-2">
+                                    <select name="gender_id" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                                        @foreach($genders as $gender)
+                                        <div class="px-2 py-2">
+                                            <option value="{{$gender->id}}" class="block px-4 py-2 bg-transparent text-sm text-gray-700 focus:outline-none focus:bg-gray-400 hover:bg-current hover:text-gray-900">
+                                                {{$gender->name}}
+                                            </option>
+                                        </div>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="mb-4">
                                 <label class="text-sm font-medium text-gray-700">Style</label>
-                                <input type="text" name="style" class="mt-2 px-4 h-10 w-full
-                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="text-sm font-medium text-gray-700">Size</label>
-                                <input type="number" name="size" class="mt-2 px-4 h-10 w-full
-                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
+                                <div class="mt-2">
+                                    <select name="style_id" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                                        @foreach($styles as $style)
+                                        <div class="px-2 py-2">
+                                            <option value="{{$style->id}}" class="block px-4 py-2 bg-transparent text-sm text-gray-700 focus:outline-none focus:bg-gray-400 hover:bg-current hover:text-gray-900">
+                                                {{$style->name}}
+                                            </option>
+                                        </div>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="flex mb-4">
-                                <div class="flex-1 mr-4 ">
+                                <div class="mr-2 flex-1 relative inline-block text-left">
+                                    <label class="mb-2 text-sm font-medium text-gray-700">Material</label>
+                                    <div class="mt-2">
+                                        <select name="material_id" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                                            @foreach($materials as $material)
+                                            <div class="px-2 py-2">
+                                                <option value="{{$material->id}}" class="block px-4 py-2 bg-transparent text-sm text-gray-700 focus:outline-none focus:bg-gray-400 hover:bg-current hover:text-gray-900">
+                                                    {{$material->name}}
+                                                </option>
+                                            </div>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="ml-2 flex-1 relative inline-block text-left">
                                     <label class="text-sm font-medium text-gray-700">Band material</label>
-                                    <input type="text" name="band_material" class="mt-2 px-4 h-10 w-full
+                                    <div class="mt-2">
+                                        <select name="band_material_id" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                                            @foreach($bands as $band)
+                                            <div class="px-2 py-2">
+                                                <option value="{{$band->id}}" class="block px-4 py-2 bg-transparent text-sm text-gray-700 focus:outline-none focus:bg-gray-400 hover:bg-current hover:text-gray-900">
+                                                    {{$band->name}}
+                                                </option>
+                                            </div>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex mb-4">
+                                <div class="mr-2 flex-1 relative inline-block text-left">
+                                    <div class="mb-4">
+                                        <label class="text-sm font-medium text-gray-700">Size (mm)</label>
+                                        <input type="number" name="size" class="mt-2 px-4 h-10 w-full
                             border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
+                                    </div>
                                 </div>
 
-                                <div class="flex-1 ml-4">
-                                    <label class="text-sm font-medium text-gray-700">Material</label>
-                                    <input type="text" name="material" class="mt-2 px-4 h-10 w-full
+                                <div class="mr-2 flex-1 relative inline-block text-left">
+                                    <div class="mb-4">
+                                        <label class="text-sm font-medium text-gray-700">Waterproof (ATM)</label>
+                                        <input type="text" name="waterproof" class="mt-2 px-4 h-10 w-full
                             border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="mb-4">
-                                <label class="text-sm font-medium text-gray-700">Waterproof</label>
-                                <input type="text" name="waterproof" class="mt-2 px-4 h-10 w-full
+                                <label class="text-sm font-medium text-gray-700">Warranty (months)</label>
+                                <input type="number" name="warranty" class="mt-2 px-4 h-10 w-full
                             border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
                             </div>
                         </div>
@@ -129,7 +170,7 @@
                         <!-- Column 3 -->
                         <div class="flex flex-1 flex-col">
                             <div class="mb-4">
-                                <label class="text-sm font-medium text-gray-700">Discount</label>
+                                <label class="text-sm font-medium text-gray-700">Discount (%)</label>
                                 <input type="text" name="discount" class="mt-2 px-4 h-10 w-full
                             border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
                             </div>

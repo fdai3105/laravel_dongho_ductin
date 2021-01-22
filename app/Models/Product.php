@@ -33,6 +33,23 @@ class Product extends Model
         return $this->hasMany(Image::class, 'product_id');
     }
 
+    public function bandMaterial()
+    {
+        return $this->belongsTo(BandMaterial::class, 'band_material_id');
+    }
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class, 'gender_id');
+    }
+    public function material()
+    {
+        return $this->belongsTo(Material::class, 'material_id');
+    }
+    public function style()
+    {
+        return $this->belongsTo(Style::class, 'style_id');
+    }
+
     public function orderDetail()
     {
         return $this->hasMany(OrderDetail::class, 'product_id');

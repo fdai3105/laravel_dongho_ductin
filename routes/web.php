@@ -1,13 +1,21 @@
 <?php
 
+use App\Http\Controllers\BandMaterialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GenderController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StyleController;
+use App\Models\BandMaterial;
+use App\Models\Gender;
+use App\Models\Material;
+use App\Models\Style;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +37,10 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('product', ProductController::class);
+    Route::resource('gender', GenderController::class);
+    Route::resource('style', StyleController::class);
+    Route::resource('material', MaterialController::class);
+    Route::resource('band_material', BandMaterialController::class);
     Route::resource('brand', BrandController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('image', ImageController::class);

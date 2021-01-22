@@ -12,13 +12,29 @@
             <span class="mx-4 font-medium">Dashboard</span>
         </a>
 
-        <a class="flex items-center mt-5 py-2 px-4 rounded-lg {{ request()->is('admin/product') ? 'bg-green-900 text-gray-100' : 'text-gray-600 hover:bg-gray-200 hover:text-green-900' }}" href="{{route('product.index')}}">
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-            </svg>
+        <div>
+            <a class="flex items-center mt-5 py-2 px-4 rounded-lg {{ request()->is('admin/product') ? 'bg-green-900 text-gray-100' : 'text-gray-600 hover:bg-gray-200 hover:text-green-900' }} {{ request()->is('admin/style') || request()->is('admin/gender') || request()->is('admin/material') || request()->is('admin/band_material') ? 'bg-gray-200 text-green-900' : '' }}" href="{{route('product.index')}}">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
 
-            <span class="mx-4 font-medium">Product</span>
-        </a>
+                <span class="mx-4 font-medium">Product</span>
+            </a>
+
+            <!-- children -->
+            <a href="{{route('style.index')}}" class="flex items-center mt-1 ml-5 py-1 px-4 rounded-lg {{ request()->is('admin/style') ? 'bg-green-900 text-gray-100' : 'text-gray-600 hover:bg-gray-200 hover:text-green-900' }}">
+                <span class="mx-4 font-medium">Style</span>
+            </a>
+            <a href="{{route('gender.index')}}" class="flex items-center mt-1 ml-5 py-1 px-4 rounded-lg {{ request()->is('admin/gender') ? 'bg-green-900 text-gray-100' : 'text-gray-600 hover:bg-gray-200 hover:text-green-900' }}">
+                <span class="mx-4 font-medium">Gender</span>
+            </a>
+            <a href="{{route('material.index')}}" class="flex items-center mt-1 ml-5 py-1 px-4 rounded-lg {{ request()->is('admin/material') ? 'bg-green-900 text-gray-100' : 'text-gray-600 hover:bg-gray-200 hover:text-green-900' }}">
+                <span class="mx-4 font-medium">Material</span>
+            </a>
+            <a href="{{route('band_material.index')}}" class="flex items-center ml-5 mt-1 py-1 px-4 rounded-lg {{ request()->is('admin/band_material') ? 'bg-green-900 text-gray-100' : 'text-gray-600 hover:bg-gray-200 hover:text-green-900' }}">
+                <span class="mx-4 font-medium">Band material</span>
+            </a>
+        </div>
 
         <a class="flex items-center  mt-5 py-2 px-4 rounded-lg {{ request()->is('admin/brand') ? 'bg-green-900 text-gray-100' : 'text-gray-600 hover:bg-gray-200 hover:text-green-900' }}" href="{{route('brand.index')}}">
             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -19,13 +19,20 @@ class CreateProductTable extends Migration
             $table->string('desc', 2048);
             $table->double('size');
             $table->bigInteger('price');
-            $table->string('material');
-            $table->string('style');
             $table->integer('waterproof');
-            $table->string('band_material');
             $table->integer('warranty');
-            $table->string('gender');
-            $table->double('discount');
+
+            $table->bigInteger('material_id')->unsigned();
+            $table->foreign('material_id')->references('id')->on('material');
+
+            $table->bigInteger('style_id')->unsigned();
+            $table->foreign('style_id')->references('id')->on('style');
+
+            $table->bigInteger('band_material_id')->unsigned();
+            $table->foreign('band_material_id')->references('id')->on('band_material');
+
+            $table->bigInteger('gender_id')->unsigned();
+            $table->foreign('gender_id')->references('id')->on('gender');
 
             $table->bigInteger('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('brand');
@@ -33,6 +40,7 @@ class CreateProductTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('category');
 
+            $table->double('discount');
             $table->timestamps();
         });
     }

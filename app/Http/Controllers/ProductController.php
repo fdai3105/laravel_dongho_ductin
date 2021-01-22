@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BandMaterial;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Gender;
 use App\Models\Image;
+use App\Models\Material;
 use App\Models\Product;
+use App\Models\Style;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +25,19 @@ class ProductController extends Controller
         $products = Product::all();
         $brands = Brand::all();
         $categories = Category::all();
-        return view('admin.product.index', ['products' => $products, 'brands' => $brands, 'categories' => $categories]);
+        $styles = Style::all();
+        $genders = Gender::all();
+        $materials = Material::all();
+        $bands = BandMaterial::all();
+        return view('admin.product.index', [
+            'products' => $products,
+            'brands' => $brands,
+            'categories' => $categories,
+            'styles' => $styles,
+            'genders' => $genders,
+            'materials' => $materials,
+            'bands' => $bands,
+        ]);
     }
 
     /**
@@ -47,12 +63,12 @@ class ProductController extends Controller
         $product->desc = $request->desc;
         $product->size = $request->size;
         $product->price = $request->price;
-        $product->material = $request->material;
-        $product->band_material = $request->band_material;
-        $product->style = $request->style;
+        $product->material_id = $request->material_id;
+        $product->band_material_id = $request->band_material_id;
+        $product->style_id = $request->style_id;
         $product->waterproof = $request->waterproof;
         $product->warranty = $request->warranty;
-        $product->gender = $request->gender;
+        $product->gender_id = $request->gender_id;
         $product->discount = $request->discount;
         $product->brand_id = $request->brand_id;
         $product->category_id = $request->category_id;

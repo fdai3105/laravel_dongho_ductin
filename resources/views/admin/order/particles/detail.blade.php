@@ -54,13 +54,13 @@
                                             <div class="text-base text-gray-900">{{ $detail->quality}}</div>
                                         </td>
                                         <td class="px-6 py-4 ">
-                                            <div class="text-base text-gray-900">{{ $detail->product->getRawOriginal('price') * $detail->quality }}</div>
+                                            <div class="text-base text-gray-900">{{ $detail->total }}</div>
                                         </td>
                                     </tr>
                                     @endforeach
                                     <tr>
                                         <td colspan="5" class="px-6 py-4 text-right">
-                                            <div class="text-lg font-semibold text-gray-600">Total bill: {{ $order->total }}₫</div>
+                                            <div class="text-lg font-semibold text-gray-600">Total bill: {{ $order->total }}</div>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -27,9 +27,4 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-
-    public function getTotalAttribute($total)
-    {
-        return number_format($total, 0, '.', '.'). '₫';
-    }
 }

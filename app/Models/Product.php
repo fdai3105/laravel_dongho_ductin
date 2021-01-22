@@ -37,9 +37,4 @@ class Product extends Model
     {
         return $this->hasMany(OrderDetail::class, 'product_id');
     }
-
-    public function getPriceAttribute($price)
-    {
-        return number_format($price, 0, '.', '.') . '₫';
-    }
 }

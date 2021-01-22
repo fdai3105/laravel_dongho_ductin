@@ -73,12 +73,6 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="text-sm font-medium text-gray-700">Image</label>
-                                <input type="text" name="image_id" class="mt-2 px-4 h-10 w-full
-                            border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
-                            </div>
-
-                            <div class="mb-4">
                                 <label class="text-sm font-medium text-gray-700">Price</label>
                                 <input type="number" name="price" class="mt-2 px-4 h-10 w-full
                             border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">

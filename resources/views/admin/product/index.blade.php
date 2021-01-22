@@ -80,12 +80,14 @@
                         <div class="text-base text-gray-900">{{ $product->price}}</div>
                     </td>
                     <td class="px-6 py-4">
-                        <div class="text-base text-gray-900">{{ $product->desc}}</div>
+                        <div class="w-32 text-base text-gray-900 truncate">{{ $product->desc}}</div>
                     </td>
                     <td class="px-6 py-4 ">
                         <div class="text-base text-gray-900">
                             @if($product->image->first() != null)
                             <img src="{{ URL::asset($product->image->first()->image) }}" class="h-20 object-fill">
+                            @else
+                            ...
                             @endif
                         </div>
                     </td>

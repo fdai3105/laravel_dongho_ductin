@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BrandResource;
+use App\Http\Resources\ProductResource;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
 
 class BrandController extends Controller
 {
@@ -38,7 +40,12 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+        $products = Brand::where('id', $id)->get();
+        $result = [];
+        foreach ($products as $product) {
+            array_push($result, $product->product);
+        }
+        return ProductResource::collection($result[0]);
     }
 
     /**

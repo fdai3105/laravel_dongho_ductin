@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -62,5 +63,17 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Get all product in this category
+     * 
+     * @param String $name  
+     * @return \Illuminate\Http\Response
+     */
+    public function getProduct($name)
+    {
+        $category = Category::where('name', $name)->first();
+        return ProductResource::collection($category->product);
     }
 }

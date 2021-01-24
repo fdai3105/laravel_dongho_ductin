@@ -20,10 +20,15 @@
             <input type="password" name="password" placeholder="Enter your password" class="mb-3 px-4 h-10 w-full
                             border border-gray-300 focus:outline-none focus:ring focus:ring-green-800 focus:border-green-800 shadow text-sm rounded-md">
 
-            <button type="submit" class="bg-white px-4 py-2 rounded-xl self-end border-2 border-green-900 focus:outline-none
+            <div class="w-full flex justify-end">
+                <a href="/register" class="bg-white px-4 py-2 mr-4 rounded-xl self-end border-2 border-green-900 focus:outline-none
             hover:bg-green-900 hover:text-white">
-                Login
-            </button>
+                    Register
+                </a>
+                <button type="submit" class="bg-green-900 px-4 py-2 rounded-xl self-end border-2 border-green-900 text-white">
+                    Login
+                </button>
+            </div>
         </form>
     </div>
 </div>

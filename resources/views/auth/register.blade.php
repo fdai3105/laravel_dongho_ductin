@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
 <div class="bg h-screen w-screen relative flex items-center justify-center">
-    <div class="bg-green-900 w-2/6 h-1/2 rounded-xl transform rotate-2">
+    <div class="bg-green-900 w-5/12 h-4/6 rounded-xl transform rotate-2">
     </div>
-    <div class="bg-white w-3/12 h-1/3 absolute rounded-xl shadow-xl flex flex-col items-center justify-center">
+
+    <div class="bg-white w-1/3 h-1/2 absolute rounded-xl shadow-xl flex flex-col items-center justify-center">
         <p class="mb-4 text-gray-900 text-lg font-bold">Register</p>
         <form action="{{ route('register') }}" method="POST" class="w-full px-10 flex flex-col items-center justify-center">
             @csrf

@@ -11,7 +11,7 @@ class Address extends Model
 
     protected $table = 'address';
 
-    protected $fillable = ['city', 'district', 'ward'];
+    protected $fillable = ['city', 'district', 'ward', 'address', 'user_id'];
 
     public $timestamps = true;
 

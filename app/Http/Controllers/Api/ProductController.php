@@ -38,7 +38,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return new ProductResource($product);
     }
 
     /**
@@ -62,5 +63,17 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showByName($name)
+    {
+        $product = Product::where('name', $name)->get()->first();
+        return new ProductResource($product);
     }
 }

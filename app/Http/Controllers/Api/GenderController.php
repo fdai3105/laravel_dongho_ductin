@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BrandResource;
-use App\Http\Resources\ProductResource;
-use App\Models\Brand;
+use App\Http\Resources\GenderResource;
+use App\Models\Gender;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class GenderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,17 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return new BrandResource(Brand::all());
+        return new GenderResource(Gender::all());
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -39,12 +48,18 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $products = Brand::where('id', $id)->get();
-        $result = [];
-        foreach ($products as $product) {
-            array_push($result, $product->product);
-        }
-        return ProductResource::collection($result[0]);
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -68,17 +83,5 @@ class BrandController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * Get all product in this brand
-     * 
-     * @param String $name  
-     * @return \Illuminate\Http\Response
-     */
-    public function getProduct($name)
-    {
-        $brand = Brand::where('name', $name)->first();
-        return ProductResource::collection($brand->product);
     }
 }

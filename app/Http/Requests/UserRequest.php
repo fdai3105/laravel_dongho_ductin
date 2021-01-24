@@ -3,9 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
-use function PHPSTORM_META\map;
-
 class UserRequest extends FormRequest
 {
     /**
@@ -30,22 +27,21 @@ class UserRequest extends FormRequest
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
             'phone_number' => 'required',
-            'gender' => 'required|boolean',
+            'gender' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'full_name.required' => 'Name must be required',
-            'email.required' => 'Email must be required',
-            'email.email' => 'Email not correct type',
-            'email.unique' => 'Email is already create',
-            'password.required' => 'Password must be required',
-            'password.min' => 'Password min is 8',
-            'phone_number.required' => 'Phone number must be required',
-            'gender.required' => 'Gender must be required',
-            'gender.boolean' => 'Gender not correct type',
+            'full_name.required' => 'Tên người dùng không được để trống',
+            'email.required' => 'Email không được để trống',
+            'email.email' => 'Email không đúng định dạng',
+            'email.unique' => 'Email đã được đăng ký',
+            'password.required' => 'Password không được để trống',
+            'password.min' => 'Password ít nhất 8 kí tự',
+            'phone_number.required' => 'Phone number không được để trống',
+            'gender.required' => 'Giới tính không được để trống',
         ];
     }
 }

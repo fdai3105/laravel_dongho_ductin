@@ -12,10 +12,6 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StyleController;
-use App\Models\BandMaterial;
-use App\Models\Gender;
-use App\Models\Material;
-use App\Models\Style;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

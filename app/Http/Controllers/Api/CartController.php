@@ -73,7 +73,8 @@ class CartController extends Controller
             Cart::where('user_id', $request->user()->id)->delete();
             return response()->json(['code' => 200, 'message' => 'created order success']);
         } catch (\Throwable $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode());
+            $order->delete();
+            return response()->json(['message' => $e->getMessage()]);
         }
     }
 }

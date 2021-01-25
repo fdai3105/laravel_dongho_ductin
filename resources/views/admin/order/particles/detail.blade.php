@@ -42,7 +42,7 @@
                                     @foreach($order->orderDetail as $detail)
                                     <tr>
                                         <td class="px-6 py-4 ">
-                                            <div class="text-base text-gray-900">{{ $detail->product->id }}</div>
+                                            <div class="text-base text-gray-900">{{ $detail->id }}</div>
                                         </td>
                                         <td class="px-6 py-4 ">
                                             <div class="text-base text-gray-900">{{ $detail->product->name }}</div>

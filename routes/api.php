@@ -34,7 +34,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('add-address', [UserController::class, 'addAddress']);
     Route::post('add-to-cart', [CartController::class, 'addToCart']);
     Route::get('get-carts', [CartController::class, 'getCarts']);
-    Route::post('remove-cart', [CartController::class, 'removeCart']);
     Route::post('checkout', [CartController::class, 'checkout']);
     Route::apiResource('order', OrderController::class);
 });
@@ -48,9 +47,12 @@ Route::group([], function () {
 
     Route::apiResource('product', ProductController::class);
     Route::get('product/by-name/{name}', [ProductController::class, 'showByName']);
+    Route::get('hot-product', [ProductController::class, 'getHotProduct']);
 
     Route::apiResource('style', StyleController::class);
     Route::apiResource('gender', GenderController::class);
     Route::apiResource('material', MaterialController::class);
     Route::apiResource('band_material', BandMaterialController::class);
+
+    Route::post('remove-cart', [CartController::class, 'removeCart']);
 });

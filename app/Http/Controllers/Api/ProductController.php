@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return ProductResource::collection(Product::all());
+        return ProductResource::collection(Product::paginate(16));
     }
 
     /**
@@ -75,5 +75,14 @@ class ProductController extends Controller
     {
         $product = Product::where('name', $name)->get()->first();
         return new ProductResource($product);
+    }
+
+    /**
+     *  
+     */
+    public function getHotProduct()
+    {
+        $products = Product::orderBy("created_at", 'desc')->limit(5)->get();
+        return ProductResource::collection($products);
     }
 }

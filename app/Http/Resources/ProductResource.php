@@ -24,7 +24,7 @@ class ProductResource extends JsonResource
             "material" => $this->material,
             "style" => $this->style,
             "waterproof" => $this->waterproof,
-            "band_material" => $this->band_material,
+            "band_material" => $this->bandMaterial,
             "warranty" => $this->warranty,
             "gender" => $this->gender,
             "discount" => $this->discount,
